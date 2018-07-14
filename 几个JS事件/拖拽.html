@@ -1,0 +1,46 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+ <head>
+  <title> new document </title>
+  <meta name="generator" content="editplus" />
+  <meta name="author" content="liyang" />
+  <meta name="keywords" content="" />
+  <meta name="description" content="" />
+  <style>
+  *{
+		margin:0;padding:0;
+	}
+  </style>
+ </head>
+
+ <body>
+  <div id="box"></div>
+  <script type="text/javascript">
+	var oBox = document.getElementById("box");
+	oBox.style.cssText = "height:100px;width:100px;background-color:red;left:0px;top:0px;";
+	oBox.style.position = "absolute";
+
+	
+	oBox.onmousedown = function(ev){
+		ev = ev || window.event;
+			//var oX = this.offsetLeft;
+			//var oY = this.offsetTop;
+			var oX = Math.floor( this.offsetWidth / 2 );
+			var oY = parseInt( this.offsetHeight / 2 );
+			console.log(1);	
+		document.onmousemove = function(ev){
+			ev = ev || window.event;
+			var oX = Math.floor( oBox.offsetWidth / 2 );
+			var oY = parseInt( oBox.offsetHeight / 2 );
+			var eX = ev.clientX;
+			var eY = ev.clientY;
+			oBox.style.left = (eX - oX) + 'px';
+			oBox.style.top = (eY - oY) + 'px';
+		}
+		document.onmouseup = function(){
+			this.onmousemove = null;
+		}
+	}
+  </script>
+ </body>
+</html>

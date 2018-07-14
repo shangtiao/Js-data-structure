@@ -1,0 +1,48 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+ <head>
+  <title> onresize </title>
+  <meta name="generator" content="editplus" />
+  <meta name="author" content="" />
+  <meta name="keywords" content="" />
+  <meta name="description" content="" />
+  <style>
+	*{
+		margin:0;padding:0;
+	}
+	div{
+		width:200px;height:200px;border:2px solid red;margin: 150px auto;
+	}
+	.div{
+		border:2px solid black;width:500px;height:500px;margin:20px auto;position:relative;
+	}
+  </style>
+ </head>
+
+ <body>
+	<div id="box">
+		
+	</div>
+   <script type="text/javascript">
+   var oBox = document.getElementById("box");
+   var oBoxParent = document.createElement("div");
+   oBoxParent.appendChild(oBox);
+   oBoxParent.classList.add("div");
+   document.body.appendChild(oBoxParent);
+   console.log( oBox.offsetTop );					//box 到 body顶部的高度 如果父级有position 则是到父级的距离
+   console.log( oBox.offsetLeft );					//box 到 body左边的距离 如果父级有position 则是到父级的距离
+	console.log(document.body.clientHeight);        //可见区域的高度
+	console.log(document.body.clientWidth);	
+	console.log(oBox.clientTop);                    //oBox上边框的高度 没有则为0
+	console.log(document.body.scrollTop);			//滚动条的距离
+   /*
+	window.onresize = function (){
+		console.log(1);	
+	}
+	window.onscroll = function (){
+		console.log(2);	
+	}
+   */
+   </script>
+ </body>
+</html>
